@@ -19,6 +19,9 @@ export default function Game() {
   const [won, steWon] = useState(false);
   const [winner, setWinner] = useState("");
 
+  /* Draw */
+  const [isDraw, setIsDraw] = useState(false);
+
   const [boardData, setBoardData] = useState({
     0: "",
     1: "",
@@ -30,9 +33,11 @@ export default function Game() {
     7: "",
     8: ""
   });
+  const player = xTurn ? "X " : "O ";
 
   useEffect(() => {
     checkWinner();
+    checkDraw()
   }, [boardData])
 
   const updateBoardData = (index) => {
@@ -58,15 +63,27 @@ export default function Game() {
       }
     });
   };
-  const player = xTurn ? "X " : "O ";
+
+  const checkDraw = () => {
+    let check = Object.keys(boardData).every((v) => boardData[v]);;
+    if (check) setIsDraw(check);
+  };
+
+  let head;
+  if (won) {
+    head = <p>{`Winner: ${winner}`}</p>;
+  } else if (isDraw) {
+    head = <p>{`Games Draw`}</p>;
+  }
+
 
   return (
     <>
       <h1 className="text-center">Tic Tac Toe</h1>
       <div className="max-w-23 mx-auto p-2 d-flex justify-center items-center">
         <div className="text-center text-2xl tracking-normal">
-          { !won && <p className="mb-2">Player : {player}</p>}
-          { won && <p>{`Winner: ${winner}`}</p>}
+          {!won && <p className="mb-2">Player : {player}</p>}
+          { head }
         </div>
         <div className="grid grid-cols-3 gap-5">
           {[...Array(9)].map((value, index) => {
