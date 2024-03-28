@@ -103,9 +103,11 @@ export default function Game() {
       <Head>
         <title>Tic-Tac-Toe</title>
       </Head>
+      <h1 className="text-center text-xl mt-10">Tic Tac Toe</h1>
       <div className="h-svh flex flex-col justify-content-center items-center justify-center">
-        <h1 className="text-center">Tic Tac Toe</h1>
+        
         <div className="max-w-23 mx-auto p-2 d-flex justify-center items-center">
+        <p className="text-2xl">Player: {xTurn === true ? "X" : "O"}</p>
           <div className="grid grid-cols-3 gap-5">
             {[...Array(9)].map((value, index) => {
               return (
