@@ -113,7 +113,7 @@ export default function Game() {
               return (
                 <div key={index} onClick={() => {
                   updateBoardData(index)
-                }} className={`${wonCombo.includes(index) ? "highlight" : ""} bg-square rounded-lg shadow-square text-center text-6xl leading-loose w-28 h-28 cursor-pointer`}>
+                }} className={`${wonCombo.includes(index) ? "highlight" : ""} text-square bg-square rounded-lg shadow-square text-center text-6xl leading-loose w-28 h-28 cursor-pointer`}>
                   {boardData[index]}
                 </div>);
             })}

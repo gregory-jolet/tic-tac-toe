@@ -74,5 +74,6 @@ button {
 
 .highlight {
   background-color: black;
+  color: #fff;
   box-shadow: none;
 }

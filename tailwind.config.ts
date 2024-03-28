@@ -15,6 +15,9 @@ const config: Config = {
       'slate-200':  'rgb(226 232 240)'
 
     },
+    textColor: {
+      'square': '#444'
+    },
     boxShadow: {
       'square': '0px 4px #ddd'
     },
